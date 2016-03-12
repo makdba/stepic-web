@@ -37,25 +37,27 @@ def paginate (request, qs):
 	except EmptyPage:
 		page= paginator.page(paginator.num_pages)
 
-	return page
+	return paginator, page
 
 
 
 @require_GET
 def questions(request):
-	page = paginate(request, Question.odjects.order_by('-added_at')) 
+	paginator, page = paginate(request, Question.odjects.order_by('-added_at')) 
 	return render(request, 'questions.html', {
 		'page':page,
 		'baseurl': '/?page=',
+		'paginator': paginator,
 		'webpage_title': 'New questions',
 	})
 
 
 def popular_questions(request):
-	page = paginate(request, Question.odjects.order_by('-rating')) 
+	paginator, page = paginate(request, Question.odjects.order_by('-rating')) 
 	return render(request, 'questions.html', {
 		'page':page,
 		'baseurl':'/popular/?page=',
+		'paginator':paginator,
 		'webpage_title':'Popular questions',
 	})
 	

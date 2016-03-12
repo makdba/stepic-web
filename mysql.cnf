@@ -1,0 +1,7 @@
+[client]
+database = webdb
+user = webdbuser
+password= webdb
+default-character-set = utf8
+
+

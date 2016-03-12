@@ -13,7 +13,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
 	text = models.TextField()
-	added_at = models.DateTimeFiels()
+	added_at = models.DateTimeField()
 	question = models.ForeignKey(Question)
-	author = models.GoreignKey(User)
+	author = models.ForeignKey(User)
 

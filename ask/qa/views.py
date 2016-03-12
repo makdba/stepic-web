@@ -12,7 +12,7 @@ def test(request, *args, **kwargs):
 
 @require_GET
 def question_info(request,q_id):
-	question = get_odject_or_404(Question, q_id=q_id)
+	question = get_object_or_404(Question, q_id=q_id)
 	return render(request, 'question_info.html', {
 	'question': question,
 	})
@@ -43,7 +43,7 @@ def paginate (request, qs):
 
 @require_GET
 def questions(request):
-	paginator, page = paginate(request, Question.odjects.order_by('-added_at')) 
+	paginator, page = paginate(request, Question.objects.order_by('-added_at')) 
 	return render(request, 'questions.html', {
 		'page':page,
 		'baseurl': '/?page=',
@@ -53,7 +53,7 @@ def questions(request):
 
 
 def popular_questions(request):
-	paginator, page = paginate(request, Question.odjects.order_by('-rating')) 
+	paginator, page = paginate(request, Question.objects.order_by('-rating')) 
 	return render(request, 'questions.html', {
 		'page':page,
 		'baseurl':'/popular/?page=',

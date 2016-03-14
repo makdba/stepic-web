@@ -1,0 +1,4 @@
+pip install django-autofixture
+Прописать в installed_apps autofixture
+
+python manage.py loadtestdata qa.Question:50

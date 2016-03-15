@@ -1,6 +1,25 @@
+<!DOCTYPE html>
 <html>
-<h1>Test- {{question.title}} </h1>
-<h2>Author- {{question.author}} </h2>
-<body>{{question.text}} </body>
-
+    <head>
+        <title>stepic-web: {{webpage_title}}</title>
+        <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”>
+        <meta name=”description” content=”QA”>
+        <link rel=”stylesheet” href=”./style.css”>
+        <style>
+            p {
+                border: 1px solid red;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body id=”the_body”>
+        <h1>{{ question.title }}</h1>
+        <p>{{ question.text }}</p>
+        <hr></hr>
+        {% for answer in answers %}
+            <p>{{ answer.text|linebreaksbr }}</p>
+        {% endfor %}
+        <hr></hr>                    
+        
+    </body>
 </html>

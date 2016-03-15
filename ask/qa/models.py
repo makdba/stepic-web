@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 class Question(models.Model):
 	title = models.CharField(max_length=255)
 	text = models.TextField()
-	added_at = models.DateTimeField()
-	rating = models.IntegerField(blank=True)
+	added_at = models.DateTimeField(auto_now_add=True)
+	rating = models.IntegerField(blank=True, null=True)
 	author = models.ForeignKey(User, related_name='question_author_set', null=True, blank=True)
 	likes = models.ManyToManyField(User, related_name = 'question_likes_set')
 

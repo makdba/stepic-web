@@ -43,7 +43,7 @@ def paginate (request, qs):
 
 @require_GET
 def questions(request):
-	page = paginate(request, Question.odjects.order_by('-id')) 
+	page = paginate(request, Question.odjects.order_by('-added_at')) 
 	return render(request, 'questions.html', {
 		'page':page,
 		'baseurl': '/?page=',
